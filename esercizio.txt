@@ -8,5 +8,62 @@ GOAL: in foglio di testo, scrivere le query necessarie per rispondere ai seguent
 ● Seleziona tutte le prenotazioni precedenti a maggio 2018
 
 
+1 Selezionare tutti gli ospiti
+
+SELECT *
+	FROM `ospiti`;
+
+
+
+2 Selezionare tutti gli ospiti con document type = a CI
+
+SELECT *
+	FROM `ospiti`
+		WHERE document_type LIKE 'ci';
+
+
+
+3 Selezionare i paganti che abbiano un ospite id associato
+
+SELECT * 
+	FROM `paganti` 
+		WHERE ospite_id IS NOT NULL;
+
+
+
+4 Selezionare tutte le stanze del primo piano
+
+SELECT * 
+	FROM `stanze` 
+		WHERE floor LIKE 1;
+
+
+
+5 Selezionare tutti gli ospiti che iniziano per E
+
+SELECT * 
+	FROM `ospiti` 
+		WHERE name LIKE 'E%';
+
+
+
+
+6 Selezionare tutti gli ospiti che abbiano meno di 30 anni
+
+SELECT * 
+	FROM `ospiti` 
+		WHERE (YEAR(NOW()) - YEAR(date_of_birth)) < 30;
+
+
+
+7 Seleziona tutte le prenotazioni precedenti a maggio 2018
+
+SELECT * 
+	FROM `prenotazioni` 
+		WHERE created_at < '2018-05-01';
+
+
+
+
 
 
